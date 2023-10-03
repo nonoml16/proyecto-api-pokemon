@@ -52,7 +52,7 @@ $(document).reay(a => {
             let stats = resp.result.stats;
             stats.forEach(function (pokemon) {
                 `
-                <div>
+                <div class="">
                     ${pokemon}
                 </div>
                 `
