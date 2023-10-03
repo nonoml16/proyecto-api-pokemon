@@ -1,7 +1,8 @@
 $(document).reay(a => {
     //Lista de pokemons
     let pokemons;
-    //Función para obtener todos los pokemos
+
+    //Función para obtener todos los pokemons
     $.ajax({
         url: 'https://pokeapi.co/api/v2/pokemon/',
         type: 'GET'
@@ -24,12 +25,7 @@ $(document).reay(a => {
     //ordenar por número en la pokedex
     $(document).on('click', 'btn-ordenar-pokedex', function () {
         pokemons.sort(function (a, b) {
-            if (a.id > b.id)
-                return 1;
-            if (a.id < b.id)
-                return -1;
-
-            return 0;
+            return a - b;
         });
     });
 
@@ -43,5 +39,15 @@ $(document).reay(a => {
 
             return 0;
         });
+    });
+
+    //Funciones para abrir y cerrar modal con información
+    //Abrir modal
+    $(document).on('click', '.btn-abrir-modal', function () {
+        let idPokemon = $(this).data('pokemon-id');
+        $.ajax({
+            url: `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`,
+            type: 'GET'
+        })
     });
 });
