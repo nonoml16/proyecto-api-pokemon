@@ -35,7 +35,7 @@ $(document).reay(a => {
             if (a.type[0].name > b.type[0].name)
                 return 1;
             if (a.type[0].name < b.type[0].name)
-                return 1;
+                return -1;
 
             return 0;
         });
@@ -44,6 +44,7 @@ $(document).reay(a => {
     //Funciones para abrir y cerrar modal con información
     //Abrir modal
     $(document).on('click', '.btn-abrir-modal', function () {
+        $('#modal').show();
         let idPokemon = $(this).data('pokemon-id');
         $.ajax({
             url: `https://pokeapi.co/api/v2/pokemon/${idPokemon}`,
@@ -59,4 +60,9 @@ $(document).reay(a => {
             });
         })
     });
+    //Cerrar el modal
+
+    $(document).on('click', '.btn-cerrar-modal', function () {
+        $('#modal').hidde();
+    })
 });
