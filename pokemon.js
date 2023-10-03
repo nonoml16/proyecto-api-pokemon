@@ -46,8 +46,17 @@ $(document).reay(a => {
     $(document).on('click', '.btn-abrir-modal', function () {
         let idPokemon = $(this).data('pokemon-id');
         $.ajax({
-            url: `https://pokeapi.co/api/v2/pokemon/${pokemon.id}`,
+            url: `https://pokeapi.co/api/v2/pokemon/${idPokemon}`,
             type: 'GET'
+        }).done(function (resp) {
+            let stats = resp.result.stats;
+            stats.forEach(function (pokemon) {
+                `
+                <div>
+                    ${pokemon}
+                </div>
+                `
+            });
         })
     });
 });
