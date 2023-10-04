@@ -1,4 +1,5 @@
 $(document).reay(a => {
+    $('myModal').hide();
     //Lista de pokemons
     let pokemons;
 
