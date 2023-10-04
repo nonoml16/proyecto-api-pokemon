@@ -47,14 +47,17 @@ $(document).reay(a => {
         $('#modal').show();
         let idPokemon = $(this).data('pokemon-id');
         $.ajax({
-            url: `https://pokeapi.co/api/v2/pokemon/${idPokemon}`,
+            url: 'https://pokeapi.co/api/v2/pokemon/' + idPokemon,
             type: 'GET'
-        }).done(function (resp) {
-            let stats = resp.result.stats;
-            stats.forEach(function (pokemon) {
+        }).done(function (pokemon) {
+            let nombre = pokemon.name;
+            let peso = pokemon.weight;
+            let altura = pokemon.height;
+            let stats = pokemon.stats;
+            stats.forEach(function (stat) {
                 `
                 <div class="">
-                    ${pokemon}
+                    ${stat.name}
                 </div>
                 `
             });
@@ -63,6 +66,6 @@ $(document).reay(a => {
     //Cerrar el modal
 
     $(document).on('click', '.btn-cerrar-modal', function () {
-        $('#modal').hidde();
+        $('#modal').hide();
     })
 });
