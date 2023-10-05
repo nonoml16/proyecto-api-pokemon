@@ -3,6 +3,10 @@
     src: url(../font/pkmndp.ttf);
 }
 
+@font-face {
+    font-family: 'pokemon-titulo';
+    src: url(../font/pkmndpb.ttf);
+}
 
 .navbar-dark .nav-item .nav-link {
     color: #fff;
@@ -35,7 +39,12 @@ main {
 
 .letra-pokemon {
     font-family: pokemon;
-    font-size: 36px;
+    font-size: 1.2em;
+}
+
+.letra-pokemon-titulo {
+    font-family: pokemon-titulo;
+    font-size: 38px;
 }
 
 .bg-morado {
