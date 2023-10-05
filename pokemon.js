@@ -1,4 +1,4 @@
-$(document).reay(a => {
+$(document).ready(a => {
     $('myModal').hide();
     //Lista de pokemons
     let pokemons;
@@ -68,5 +68,5 @@ $(document).reay(a => {
 
     $(document).on('click', '.btn-cerrar-modal', function () {
         $('#modal').hide();
-    })
+    });
 });
