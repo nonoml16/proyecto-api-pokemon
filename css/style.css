@@ -2,7 +2,9 @@
     font-family: 'pokemon';
     src: url(../font/pkmndp.ttf);
 }
-
+.font-text {
+    font-family: pokemon;
+}
 
 .navbar-dark .nav-item .nav-link {
     color: #fff;
@@ -41,6 +43,15 @@
     border-radius: 20px;
     text-align: center;
     width: 150px;
+    margin: 3px;
+}
+
+.etiqueta-width-max{
+    font-family: pokemon;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
     margin: 3px;
 }
 
