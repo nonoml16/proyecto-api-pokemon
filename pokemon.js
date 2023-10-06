@@ -1,4 +1,5 @@
-$(document).reay(a => {
+$(document).ready(a => {
+    $('myModal').hide();
     //Lista de pokemons
     let pokemons;
 
@@ -35,7 +36,7 @@ $(document).reay(a => {
             if (a.type[0].name > b.type[0].name)
                 return 1;
             if (a.type[0].name < b.type[0].name)
-                return 1;
+                return -1;
 
             return 0;
         });
@@ -44,19 +45,28 @@ $(document).reay(a => {
     //Funciones para abrir y cerrar modal con información
     //Abrir modal
     $(document).on('click', '.btn-abrir-modal', function () {
+        $('#modal').show();
         let idPokemon = $(this).data('pokemon-id');
         $.ajax({
-            url: `https://pokeapi.co/api/v2/pokemon/${idPokemon}`,
+            url: 'https://pokeapi.co/api/v2/pokemon/' + idPokemon,
             type: 'GET'
-        }).done(function (resp) {
-            let stats = resp.result.stats;
-            stats.forEach(function (pokemon) {
+        }).done(function (pokemon) {
+            let nombre = pokemon.name;
+            let peso = pokemon.weight;
+            let altura = pokemon.height;
+            let stats = pokemon.stats;
+            stats.forEach(function (stat) {
                 `
                 <div class="">
-                    ${pokemon}
+                    ${stat.name}
                 </div>
                 `
             });
         })
+    });
+    //Cerrar el modal
+
+    $(document).on('click', '.btn-cerrar-modal', function () {
+        $('#modal').hide();
     });
 });
