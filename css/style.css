@@ -8,6 +8,10 @@
     src: url(../font/pkmndpb.ttf);
 }
 
+.font-text {
+    font-family: pokemon;
+}
+
 .navbar-dark .nav-item .nav-link {
     color: #fff;
 }
@@ -30,33 +34,119 @@
     color: black;
 }
 
-main {
-    background-image: url(../img/background.gif);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-origin: initial;
-}
-
-.letra-pokemon {
+/*Para usar las etiquetas crea un div con el nombre de una de las clases y el texto dentro*/
+.etiqueta-peq {
     font-family: pokemon;
-    font-size: 1.2em;
+    border-radius: 20px;
+    text-align: center;
+    width: 100px;
+    margin: 3px;
 }
 
-.letra-pokemon-titulo {
-    font-family: pokemon-titulo;
-    font-size: 38px;
+.etiqueta-gra {
+    font-family: pokemon;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 150px;
+    margin: 3px;
 }
 
-.bg-morado {
-    background-color: blueviolet;
+.etiqueta-width-max {
+    font-family: pokemon;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 100%;
+    margin: 3px;
 }
 
-.card-columns {
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
+.et-planta {
+    background-color: #3fa129;
+    color: white;
+}
 
-    @include media-breakpoint-only(xl) {
-        column-count: 5;
-    }
+.et-agua {
+    background-color: #2980ef;
+    color: white;
+}
+
+.et-acero {
+    background-color: #60a1b8;
+    color: white;
+}
+
+.et-bicho {
+    background-color: #91a119;
+    color: white;
+}
+
+.et-dragon {
+    background-color: #5061e1;
+    color: white;
+}
+
+.et-electrico {
+    background-color: #fac000;
+    color: white;
+}
+
+.et-fantasma {
+    background-color: #704170;
+    color: white;
+}
+
+.et-fuego {
+    background-color: #e62829;
+    color: white;
+}
+
+.et-hada {
+    background-color: #ef71ef;
+    color: white;
+}
+
+.et-hielo {
+    background-color: #3fd8ff;
+    color: white;
+}
+
+.et-lucha {
+    background-color: #ff8000;
+    color: white;
+}
+
+.et-normal {
+    background-color: #9fa19f;
+    color: white;
+}
+
+.et-psiquico {
+    background-color: #ef4179;
+    color: white;
+}
+
+.et-roca {
+    background-color: #afa981;
+    color: white;
+}
+
+.et-siniestro {
+    background-color: #50413f;
+    color: white;
+}
+
+.et-tierra {
+    background-color: #915121;
+    color: white;
+}
+
+.et-veneno {
+    background-color: #8f41cb;
+    color: white;
+}
+
+.et-volador {
+    background-color: #81b9ef;
+    color: white;
 }
