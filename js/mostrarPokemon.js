@@ -10,11 +10,13 @@ $(document).ready(function () {
                                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${i}.gif"
                                         class="card-img-top" alt="...">
                                     <div class="card-body">
-                                        <h5 class="card-title letra-pokemon-titulo">${pokemon.name}</h5>
                                         </div>
-                                        <div class="card-footer d-flex justify-content-around">
-                                            <div class="p-2 badge rounded-pill bg-success letra-pokemon">Planta</div>
-                                            <div class="p-2 badge rounded-pill bg-morado letra-pokemon">Planta</div>
+                                        <div class="card-footer">
+                                            <h5 class="card-title letra-pokemon-titulo">${pokemon.name}</h5>
+                                            <div class="d-flex justify-content-around">
+                                                <div class="p-2 badge rounded-pill bg-success letra-pokemon">Planta</div>
+                                                <div class="p-2 badge rounded-pill bg-morado letra-pokemon">Planta</div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>`
