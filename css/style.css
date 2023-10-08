@@ -22,6 +22,10 @@ body {
     font-family: pokemon-titulo;
 }
 
+.titulo-pagina {
+    font-size: 52px;
+}
+
 .titulo-tarjeta {
     font-size: 36px;
 }
