@@ -147,7 +147,6 @@ $(document).ready(function () {
             type: 'GET'
         }).done(function(item){
             let nombre = item.names[5].name;
-            let sprite = item.sprite.default;
             let descipcion = item.flavor_text_entries[13].text;
             let categoria = item.category.name;
             let precio = item.cost;
