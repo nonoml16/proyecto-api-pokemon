@@ -61,22 +61,22 @@
     margin: 3px;
 }
 
-.et-planta {
+.et-grass {
     background-color: #3fa129;
     color: white;
 }
 
-.et-agua {
+.et-water {
     background-color: #2980ef;
     color: white;
 }
 
-.et-acero {
+.et-steel {
     background-color: #60a1b8;
     color: white;
 }
 
-.et-bicho {
+.et-bug {
     background-color: #91a119;
     color: white;
 }
@@ -86,32 +86,32 @@
     color: white;
 }
 
-.et-electrico {
+.et-electric {
     background-color: #fac000;
     color: white;
 }
 
-.et-fantasma {
+.et-ghost {
     background-color: #704170;
     color: white;
 }
 
-.et-fuego {
+.et-fire {
     background-color: #e62829;
     color: white;
 }
 
-.et-hada {
+.et-fairy {
     background-color: #ef71ef;
     color: white;
 }
 
-.et-hielo {
+.et-ice {
     background-color: #3fd8ff;
     color: white;
 }
 
-.et-lucha {
+.et-fight {
     background-color: #ff8000;
     color: white;
 }
@@ -121,32 +121,32 @@
     color: white;
 }
 
-.et-psiquico {
+.et-psychic {
     background-color: #ef4179;
     color: white;
 }
 
-.et-roca {
+.et-rock {
     background-color: #afa981;
     color: white;
 }
 
-.et-siniestro {
+.et-dark {
     background-color: #50413f;
     color: white;
 }
 
-.et-tierra {
+.et-ground {
     background-color: #915121;
     color: white;
 }
 
-.et-veneno {
+.et-poison {
     background-color: #8f41cb;
     color: white;
 }
 
-.et-volador {
+.et-flying {
     background-color: #81b9ef;
     color: white;
 }
