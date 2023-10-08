@@ -141,51 +141,30 @@ $(document).ready(function () {
     //Funciones para abrir y cerrar modal con información
     //Abrir modal
     $(document).on('click', '.btn-abrir-modal', function () {
-        $('.modal-title').empty();
-        $('#imgModal img').remove();
-        $('.tipo1').remove();
-        $('.tipo2').remove();
-        $('#peso').empty();
-        $('#altura').empty();
-        $('#myModal').show();
-        let idPokemon = $(this).data('pokemon-id');
+        let idBerry = $(this).data('berry-id');
         $.ajax({
-            url: 'https://pokeapi.co/api/v2/pokemon/' + idPokemon,
+            url: 'https://pokeapi.co/api/v2/item/' + idBerry,
             type: 'GET'
-        }).done(function (pokemon) {
-            let tipo1 = pokemon.types[0].type.name;
-            let tipo2 = pokemon.types.length > 1 ? pokemon.types[1].type.name : null;
-            let nombre = pokemon.name;
-            let peso = Math.round((pokemon.weight)/10, 2);
-            let altura =(pokemon.height)*10;
-            let stats = pokemon.stats;
-            let imgTemplate = 
-            `
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" style="width: 100px; height: 100px;">
-            `
-            let tipo1Template = 
-            `
-            <span class="tipo1 col-2 etiqueta-peq et-${tipo1}">
-                ${tipo1}
-            </span>
-            `;
-            $('.modal-title').append(nombre);
-            $('#imgModal').append(imgTemplate);
-            $('#etiquetas').append(tipo1Template);
-            if(tipo2 != null) {
-                $('#etiquetas').append(
-                    `
-                    <span class="tipo2 col-2 etiqueta-peq et-${tipo2}">
-                        ${tipo2}
-                    </span>
-                    `)
-                }
-            $('#altura').append(`${altura}cm`);
-            $('#peso').append(`${peso}kg`);
-            stats.forEach(function (stat) {
-                $(`#${stat.stat.name} p`).empty().append(stat.base_stat);
-                $(`#${stat.stat.name} div div`).css({'width':`${stat.base_stat}`})
+        }).done(function(berry){
+            let nombre = berry.name;
+            let sabores = berry.flavors;
+            let firmeza = berry.firmess.name;
+            
+            $('.modal-title').empty().append(nombre);
+            $('#imgModal img').remove();
+            $('#imgModal').append(
+              `
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/${nombre}-berry.png" style="width: 100px; height: 100px;">
+              `  
+            );
+
+            sabores.forEach(function (sabor) {
+                $(`#${sabor.flavor.name} div div`)
+                .empty()
+                .css({'width':`${sabor.potency}`}
+                .append(`${sabor.potency}%`))
             });
+            $('#firmess div').empty().append(firmeza);
         });
     });
     //Cerrar el modal
