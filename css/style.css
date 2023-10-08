@@ -8,8 +8,22 @@
     src: url(../font/pkmndpb.ttf);
 }
 
+body {
+    background-image: url(../img/Pokemon-Rotom-Dex-4k-Live-Wallpaper.gif);
+    background-size: 100%;
+    background-attachment: fixed;
+}
+
 .font-text {
     font-family: pokemon;
+}
+
+.font-title {
+    font-family: pokemon-titulo;
+}
+
+.titulo-tarjeta {
+    font-size: 36px;
 }
 
 .navbar-dark .nav-item .nav-link {
@@ -34,7 +48,6 @@
     color: black;
 }
 
-/*Para usar las etiquetas crea un div con el nombre de una de las clases y el texto dentro*/
 .etiqueta-peq {
     font-family: pokemon;
     border-radius: 20px;
@@ -111,7 +124,7 @@
     color: white;
 }
 
-.et-fight {
+.et-fighting {
     background-color: #ff8000;
     color: white;
 }
@@ -149,4 +162,31 @@
 .et-flying {
     background-color: #81b9ef;
     color: white;
+}
+
+#lista-pokemon .card {
+    margin-bottom: 20px;
+}
+
+.pokemon-image-container {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.card {
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 10px;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: none;
 }
