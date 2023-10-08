@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     function cargarPokemon(offset, limit) {
         $.ajax({
-            url: 'https://pokeapi.co/api/v2/pokemon',
+            url: 'https://pokeapi.co/api/v2/berry',
             type: 'GET',
             data: {
                 offset: offset,
@@ -20,27 +20,17 @@ $(document).ready(function () {
                 $.ajax({
                     url: url,
                     type: 'GET',
-                }).done(function (pokemonData) {
-                    var tipo1 = pokemonData.types[0].type.name;
-                    var tipo2 = pokemonData.types.length > 1 ? pokemonData.types[1].type.name : null;
+                }).done(function (berryData) {
 
-                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-pokemon-id=${pokemonData.id}>
+                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-pokemon-id=${berryData.id}>
                                         <div class="pokemon-image-container mt-3">
-                                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonData.id}.png"
+                                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/${berryData.name}-berry.png"
                                                 class="card-img-top rounded" alt="...">
                                         </div>
                                         <div class="card-body">
                                         </div>
                                         <div class="card-footer">
-                                            <h5 class="card-title font-title titulo-tarjeta">${pokemonData.name}</h5>
-                                            <div class="d-flex justify-content-around">
-                                                <div class="etiqueta-peq et-${tipo1}">${tipo1}</div>`;
-
-                    if (tipo2) {
-                        elementoLista += `<div class="etiqueta-peq et-${tipo2}">${tipo2}</div>`;
-                    }
-
-                    elementoLista += `</div>
+                                            <h5 class="card-title font-title titulo-tarjeta">${berryData.name}</h5>
                                     </div>
                                 </div>`;
 
@@ -145,24 +135,24 @@ $(document).ready(function () {
         $.ajax({
             url: 'https://pokeapi.co/api/v2/item/' + idBerry,
             type: 'GET'
-        }).done(function(berry){
+        }).done(function (berry) {
             let nombre = berry.name;
             let sabores = berry.flavors;
             let firmeza = berry.firmess.name;
-            
+
             $('.modal-title').empty().append(nombre);
             $('#imgModal img').remove();
             $('#imgModal').append(
-              `
+                `
               <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/${nombre}-berry.png" style="width: 100px; height: 100px;">
-              `  
+              `
             );
 
             sabores.forEach(function (sabor) {
                 $(`#${sabor.flavor.name} div div`)
-                .empty()
-                .css({'width':`${sabor.potency}`}
-                .append(`${sabor.potency}%`))
+                    .empty()
+                    .css({ 'width': `${sabor.potency}` }
+                        .append(`${sabor.potency}%`))
             });
             $('#firmess div').empty().append(firmeza);
         });
