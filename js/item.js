@@ -24,9 +24,9 @@ $(document).ready(function () {
                     var tipo1 = pokemonData.types[0].type.name;
                     var tipo2 = pokemonData.types.length > 1 ? pokemonData.types[1].type.name : null;
 
-                    var elementoLista = `<div class="card ms-4">
+                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-pokemon-id=${pokemonData.id}>
                                         <div class="pokemon-image-container mt-3">
-                                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${i}.png"
+                                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonData.id}.png"
                                                 class="card-img-top rounded" alt="...">
                                         </div>
                                         <div class="card-body">
@@ -137,4 +137,42 @@ $(document).ready(function () {
 
     // Cargar la primera página al cargar la página
     cargarPokemon(offset, limit);
+
+    //Funciones para abrir y cerrar modal con información
+    //Abrir modal
+    $(document).on('click', '.btn-abrir-modal', function () {
+        let idItem = $(this).data('item-id');
+        $.ajax({
+            url: 'https://pokeapi.co/api/v2/item/' + idItem,
+            type: 'GET'
+        }).done(function(item){
+            let nombre = item.names[5].name;
+            let sprite = item.sprite.default;
+            let descipcion = item.flavor_text_entries[13].text;
+            let categoria = item.category.name;
+            let precio = item.cost;
+            let consumible = false;
+            item.attributes.forEach(function(atributo){
+                if(atributo.name == "consumable") {
+                    consumible = true;
+                }
+            })
+            $('.modal-title').empty().append(nombre)
+            $('#imgModal img').remove();
+            $('#imgModal').append(
+              `
+              <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png" style="width: 100px; height: 100px;">
+              `  
+            );
+            $('#descripcion').empty().append(descipcion);
+            $('#categoria').empty().append(categoria);
+            $('#precio').empty().append(precio);
+            $('#consumible').empty().append(consumible = true ? 'Si' : 'no');
+        });
+    });
+    //Cerrar el modal
+
+    $(document).on('click', '.btn-cerrar-modal', function () {
+        $('#myModal').hide();
+    });
 });
