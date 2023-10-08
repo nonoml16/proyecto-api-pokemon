@@ -12,6 +12,10 @@
     font-family: pokemon;
 }
 
+.font-title {
+    font-family: pokemon-titulo;
+}
+
 .navbar-dark .nav-item .nav-link {
     color: #fff;
 }
@@ -34,7 +38,10 @@
     color: black;
 }
 
-/*Para usar las etiquetas crea un div con el nombre de una de las clases y el texto dentro*/
+/*Para usar las etiquetas crea un div con el nombre de una de las clases principales (etiqueta-...) 
+y las secundarias para el color (et-...)*/
+
+/*Etiquetas principales*/
 .etiqueta-peq {
     font-family: pokemon;
     border-radius: 20px;
@@ -61,6 +68,7 @@
     margin: 3px;
 }
 
+/*Etiquetas secundarias o de colores*/
 .et-grass {
     background-color: #3fa129;
     color: white;
@@ -111,7 +119,7 @@
     color: white;
 }
 
-.et-fight {
+.et-fighting {
     background-color: #ff8000;
     color: white;
 }
