@@ -22,7 +22,7 @@ $(document).ready(function () {
                     type: 'GET',
                 }).done(function (berryData) {
 
-                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-pokemon-id=${berryData.id}>
+                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-berry-id=${berryData.id}>
                                         <div class="pokemon-image-container mt-3">
                                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries/${berryData.name}-berry.png"
                                                 class="card-img-top rounded" alt="...">
@@ -131,14 +131,15 @@ $(document).ready(function () {
     //Funciones para abrir y cerrar modal con información
     //Abrir modal
     $(document).on('click', '.btn-abrir-modal', function () {
+        $('#myModal').show();
         let idBerry = $(this).data('berry-id');
         $.ajax({
-            url: 'https://pokeapi.co/api/v2/item/' + idBerry,
+            url: 'https://pokeapi.co/api/v2/berry/' + idBerry,
             type: 'GET'
         }).done(function (berry) {
             let nombre = berry.name;
             let sabores = berry.flavors;
-            let firmeza = berry.firmess.name;
+            let firmeza = berry.firmness.name;
 
             $('.modal-title').empty().append(nombre);
             $('#imgModal img').remove();
@@ -151,10 +152,10 @@ $(document).ready(function () {
             sabores.forEach(function (sabor) {
                 $(`#${sabor.flavor.name} div div`)
                     .empty()
-                    .css({ 'width': `${sabor.potency}` }
-                        .append(`${sabor.potency}%`))
+                    .css({ 'width':`${sabor.potency}`})
+                    .append(`${sabor.potency}%`);
             });
-            $('#firmess div').empty().append(firmeza);
+            $('#firmness div').empty().append(firmeza);
         });
     });
     //Cerrar el modal

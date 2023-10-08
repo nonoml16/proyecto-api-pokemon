@@ -22,7 +22,7 @@ $(document).ready(function () {
                     type: 'GET',
                 }).done(function (itemApi) {
 
-                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-pokemon-id=${itemApi.id}>
+                    var elementoLista = `<div class="card ms-4 btn-abrir-modal" data-item-id=${itemApi.id}>
                                         <div class="pokemon-image-container mt-3">
                                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${itemApi.name}.png"
                                                 class="card-img-top rounded" alt="...">
@@ -133,12 +133,12 @@ $(document).ready(function () {
     //Abrir modal
     $(document).on('click', '.btn-abrir-modal', function () {
         let idItem = $(this).data('item-id');
+        $('#myModal').show();
         $.ajax({
             url: 'https://pokeapi.co/api/v2/item/' + idItem,
             type: 'GET'
         }).done(function (item) {
             let nombre = item.names[5].name;
-            let sprite = item.sprite.default;
             let descipcion = item.flavor_text_entries[13].text;
             let categoria = item.category.name;
             let precio = item.cost;
@@ -148,7 +148,7 @@ $(document).ready(function () {
                     consumible = true;
                 }
             })
-            $('.modal-title').empty().append(nombre)
+            $('.modal-title').empty().append(nombre);
             $('#imgModal img').remove();
             $('#imgModal').append(
                 `
@@ -157,7 +157,7 @@ $(document).ready(function () {
             );
             $('#descripcion').empty().append(descipcion);
             $('#categoria').empty().append(categoria);
-            $('#precio').empty().append(precio);
+            $('#precio').empty().append(precio + '$');
             $('#consumible').empty().append(consumible = true ? 'Si' : 'no');
         });
     });

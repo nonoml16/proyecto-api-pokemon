@@ -132,11 +132,11 @@
 
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <div class="col-3" style="text-align: center">
+                    <div id="imgModal" class="col-3" style="text-align: center">
                         <img src="../img/logo.png" style="width: 100px; height: 100px;">
                     </div>
                     <h4 class="modal-title col-7 font-title">Master Ball</h4>
-                    <button type="button col-2" class="btn-close m-2" data-bs-dismiss="modal"></button>
+                    <button type="button col-2" class="btn-cerrar-modal btn-close m-2" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
@@ -144,27 +144,29 @@
                     <div class="etiqueta-width-max et-steel p-3">
                         <div class="font-title text-start">Descripción</div>
                         <hr>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque lorem ut nibh
-                        blandit scelerisque. Nulla pretium lorem nunc. Nam facilisis vulputate bibendum. Phasellus
-                        vitae lobortis turpis.
+                        <p id="descripcion">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque lorem ut nibh
+                            blandit scelerisque. Nulla pretium lorem nunc. Nam facilisis vulputate bibendum. Phasellus
+                            vitae lobortis turpis.
+                        </p>
                     </div>
                     <div class="etiqueta-width-max font-text et-dragon p-3 m-1 ">
                         <div class="font-title text-start">Categoría</div>
-                        Mi abuela
+                        <p id="categoria">Mi abuela</p>
                     </div>
                     <div class="etiqueta-width-max font-text et-fighting p-3 m-1">
                         <div class="font-title text-start">Precio</div>
-                        144$
+                        <p id="precio">144$</p>
                     </div>
                     <div class="etiqueta-width-max font-text et-rock p-3 m-1">
-                        <div class="font-title text-start">Arrojadizo?</div>
-                        Mi abuela
+                        <div class="font-title text-start">Consumible?</div>
+                        <p id="consumible">N/A</p>
                     </div>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-cerrar-modal btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
 
             </div>
